@@ -1,15 +1,23 @@
-numeros = list()
-maior = menor = 0
+listanum = []
+mai = men = 0
 for c in range(0, 5):
-    n = int(input(f'Digite um número para posição {c}: '))
-    numeros.append(n)
-print('=' * 35)
-print(numeros)
-print('=' * 35)
-for v in range(0, 1):
-    for c, n in enumerate(numeros):
-        print(f'O maior número é: {max(numeros)} e está na posição {c}')
-
-
-# print(max(numeros))
-# print(min(numeros))
+    listanum.append(int(input(f'Digite um valor para a posição {c}: ')))
+    if c == 0:
+        mai = men = listanum[c]
+    else:
+        if listanum[c] > mai:
+            mai = listanum[c]
+        if listanum[c] < men:
+            men = listanum[c]
+print('-=' * 30)
+print(f'Você digitou os valores {listanum}')
+print(f'O maior valor digitado foi {mai} nas posição ', end='')
+for i, v in enumerate(listanum):
+    if v == mai:
+        print(f'{i}...', end='')
+print()
+print(f'O menor valor digitado foi {men} nas posições ', end='')
+for i, v in enumerate(listanum):
+    if v == men:
+        print(f'{i}...', end='')
+print()
