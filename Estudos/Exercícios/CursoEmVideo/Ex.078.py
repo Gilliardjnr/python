@@ -1,1 +1,1 @@
-print('Teste no repositório')
+print('Teste no repositório!')
