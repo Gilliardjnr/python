@@ -1,27 +1,32 @@
-pessoas = list()
-provisoria = list()
-leve = pesado = 0
+temp = list()
+princ = list()
+mai = men = 0
 while True:
-    nome = str(input('Insira o nome: ')).strip()
-    peso = float(input('Insira o peso: '))
-
-    provisoria.append(nome)
-    provisoria.append(peso)
-    pessoas.append(provisoria[:])
-    provisoria.clear()
-
-    resp = str(input('Deseja continuar [S/N]? ')).strip().upper()[0]
+    temp.append(str(input('Nome: ')))
+    temp.append(float(input('Peso: ')))
+    if len(princ) == 0:
+        mai = men = temp[1]
+    else:
+        if temp[1] > mai:
+            mai = temp[1]
+        if temp [1] < men:
+            men = temp[1]
+    princ.append(temp[:])
+    temp.clear()
+    resp = str(input('Quer continuar [S/N]? ')).strip().upper()[0]
     while resp not in 'SN':
-         resp = str(input('Tente novamente. Deseja continuar [S/N]? ')).strip().upper()[0]
-
+        resp = str(input('Tente novamente. Quer continuar [S/N]? ')).strip().upper()[0]
     if resp in 'N':
         break
-print('=' * 30)
-print(f'Número de pessoas cadastradas: {len(pessoas)} pessoas.')
-for p in pessoas:
-    if p == 0:
-        leve = pesado = p[0][1]
-    #if p > 1:
-print(pessoas)
-print(leve)
-print(pesado)
+print('-=' * 30)
+print(f'Ao todo, você cadastrou {len(princ)} pessoas. ')
+print(f'O maior peso foi de {mai}kg. Peso de ', end='')
+for p in princ:
+    if p[1] == mai:
+        print(f'[{p[0]}] ', end='')
+print()
+print(f'O menor peso foi de {men}kg. Peso de ', end='')
+for p in princ:
+    if p[1] == men:
+        print(f'[{p[0]}]', end='')
+print()
