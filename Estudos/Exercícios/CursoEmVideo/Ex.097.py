@@ -1,7 +1,8 @@
-def escreva(*txt):
-    print('=' * len(*txt))
-    print(*txt)
-    print('=' * len(*txt))
+def escreva(txt):
+    tam = len(txt) + 4
+    print('=' * tam)
+    print(f'  {txt}')
+    print('=' * tam)
 
 
 escreva(str(input('Digite algo: ')))
